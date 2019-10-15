@@ -20,5 +20,9 @@ async def on_ready():
     print(f'Logged in as {client.user}')
 
 
+@client.command()
+async def test(ctx):
+    await ctx.send('hey there!')
+
 # Run selfbot
 client.run(USER_TOKEN, bot=False)
