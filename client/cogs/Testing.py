@@ -11,15 +11,12 @@ class Testing(commands.Cog):
     async def testapi(self, ctx, msg='Hi'):
         """For testing API."""
 
-        # Delete message before doing anything
-        await ctx.message.delete()
-
         jsonData = {
             'msg': msg
         }
 
         try:
-            requests.post('https://localhost:5000/testing', json=jsonData)
+            requests.post('http://localhost:5000/testing', json=jsonData)
         except Exception as e:
             print(e)
         
