@@ -18,8 +18,8 @@ client = commands.Bot(command_prefix=PREFIX, help_command=None,
                       description=None, self_bot=True, owner_id=OWNER_ID)
 
 # Add cogs to the client
-client.add_cog(ServerInfo)
-client.add_cog(Testing)
+client.add_cog(ServerInfo(client))
+client.add_cog(Testing(client))
 
 # Runs when the on_ready client event is sent
 @client.event

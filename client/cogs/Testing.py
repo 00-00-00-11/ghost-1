@@ -8,7 +8,7 @@ class Testing(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def test(self, ctx, msg='Hi'):
+    async def testapi(self, ctx, msg='Hi'):
         """For testing API."""
 
         # Delete message before doing anything
