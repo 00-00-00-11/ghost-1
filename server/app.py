@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 
 
 app = Flask(__name__)
@@ -13,6 +13,7 @@ def index():
 def test():
     json_data = request.get_json()
     print(json_data)
+    return json_data
 
 
 if __name__ == '__main__':
