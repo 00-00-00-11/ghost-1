@@ -6,6 +6,7 @@ load_dotenv()
 
 # Cogs import
 from cogs.ServerInfo import ServerInfo
+from cogs.Testing import Testing
 
 # Get important data from the env file.
 OWNER_ID = os.getenv('OWNER_ID')
@@ -18,6 +19,7 @@ client = commands.Bot(command_prefix=PREFIX, help_command=None,
 
 # Add cogs to the client
 client.add_cog(ServerInfo)
+client.add_cog(Testing)
 
 # Runs when the on_ready client event is sent
 @client.event
