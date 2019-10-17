@@ -8,16 +8,15 @@ class Testing(commands.Cog):
         self.bot = bot
 
     @commands.command()
-    async def testapi(self, ctx, msg='Hi'):
-        """For testing API."""
+    async def testapi(self, ctx, *message):
+        """For simple testing of API message send. If this fails, something has gone very wrong."""
 
         jsonData = {
-            'msg': msg
+            'title': 'Message Relay',
+            'message': message
         }
 
         try:
             requests.post('http://localhost:3000/message', json=jsonData)
         except Exception as e:
             print(e)
-        
-        print('request sent from client')

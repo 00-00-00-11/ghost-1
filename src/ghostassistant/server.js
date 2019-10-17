@@ -12,9 +12,17 @@ const ownerId = process.env.OWNER_ID.toString();
 // Export the server with client as a parameter
 module.exports = client => {
     app.post('/message', (req, res) => {
+        var msg = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle(msg.title)
+            .setDescription(msg.message)
+            .setColor(0xffffff)
+            .setTimestamp()
+            .setFooter('Ghost');
+
         client.fetchUser(ownerId).then(user => {
-            res.send(user.username);
-            user.send('hello!');
+            user.send(embed);
         })
     })
 }
