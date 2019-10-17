@@ -25,6 +25,30 @@ module.exports = client => {
             user.send(embed);
         })
     })
+
+    app.post('/serverinfo', (req, res) => {
+        var serverinfo = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle(serverinfo.title)
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .addField('Owner', serverinfo.owner, true)
+            .addField('Members', serverinfo.members, true)
+            .addField('Currently Online', serverinfo.currently_online, true)
+            .addField('Text Channels', serverinfo.text_channels, true)
+            .addField('Region', serverinfo.region.pop(), true)
+            .addField('Verification Level', serverinfo.verification_level, true)
+            .addField('Number of roles', serverinfo.number_of_roles, true)
+            .addField('Number of emotes', serverinfo.number_of_emotes, true)
+            .addField('Users', serverinfo.hastebin_of_users, true)
+            .addField('Created At', serverinfo.created_at, true);
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js

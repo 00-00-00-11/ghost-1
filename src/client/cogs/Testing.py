@@ -10,6 +10,7 @@ class Testing(commands.Cog):
     @commands.command()
     async def testapi(self, ctx, *message):
         """For simple testing of API message send. If this fails, something has gone very wrong."""
+        await ctx.message.delete()
 
         jsonData = {
             'title': 'Message Relay',
