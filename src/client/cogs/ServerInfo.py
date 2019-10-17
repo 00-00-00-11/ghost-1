@@ -11,7 +11,6 @@ class ServerInfo(commands.Cog):
     @commands.command()
     async def serverinfo(self, ctx):
         """Get server info."""
-        # Delete the message
         await ctx.message.delete()
 
         server = ctx.message.guild

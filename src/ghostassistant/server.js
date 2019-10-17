@@ -49,6 +49,28 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    app.post('/userinfo', (req, res) => {
+        var userinfo = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle(userinfo.title)
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setThumbnail(userinfo.thumbnail)
+            .addField('User ID', userinfo.id, true)
+            .addField('Is Friend', userinfo.is_friend, true)
+            .addField('Created At', userinfo.created_at, true);
+
+        if (userinfo.is_friend !== true) {
+            embed.addField('Is Blocked', userinfo.is_blocked, true);
+        }
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js
