@@ -1,2 +1,3 @@
 # Ghost
-Advanced discord self bot that doesn't abuse Discord API!
+
+Advanced discord self bot that doesn't abuse Discord API.
