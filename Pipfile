@@ -12,7 +12,8 @@ requests = "*"
 flask = "*"
 pbwrap = "*"
 python-dotenv = "*"
-celery = "*"
+celery = {extras = ["redis"],version = "*"}
+celery-pubsub = "*"
 
 [requires]
 python_version = "3.7"

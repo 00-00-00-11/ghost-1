@@ -9,10 +9,13 @@ app.config['CELERY_RESULT_BACKEND'] = 'redis://localhost:6379/0'
 
 @app.route('/')
 def index():
-    result = task.hello.delay('cool msg')
+    # discord_user = task.get_discord_user.delay()
+    # discord_user.wait()
+    # print(discord_user.result)
+    result = task.hello.delay('awesome message')
     result.wait()
     print(result.result)
-    return f'Hello, world! {result}'
+    return f'Hello, world! {result.result}'
 
 
 @app.route('/testing', methods=['POST'])
