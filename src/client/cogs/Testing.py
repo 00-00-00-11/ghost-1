@@ -16,7 +16,7 @@ class Testing(commands.Cog):
         }
 
         try:
-            requests.post('http://localhost:5000/testing', json=jsonData)
+            requests.post('http://localhost:3000/message', json=jsonData)
         except Exception as e:
             print(e)
         

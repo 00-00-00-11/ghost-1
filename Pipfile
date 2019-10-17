@@ -10,6 +10,7 @@ autopep8 = "*"
 requests = "*"
 pbwrap = "*"
 python-dotenv = "*"
+discord-py = "*"
 
 [requires]
 python_version = "3.7"
