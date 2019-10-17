@@ -2,7 +2,7 @@
   "name": "ghostassistant",
   "version": "1.0.0",
   "description": "Server + Bot for Ghost self bot.",
-  "main": "index.js",
+  "main": "bot.js",
   "repository": "https://github.com/tempor1s/ghost",
   "author": "Ben Lafferty",
   "license": "None",
