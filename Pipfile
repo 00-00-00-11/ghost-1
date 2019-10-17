@@ -7,13 +7,9 @@ verify_ssl = true
 autopep8 = "*"
 
 [packages]
-discord-py = "*"
 requests = "*"
-flask = "*"
 pbwrap = "*"
 python-dotenv = "*"
-celery = {extras = ["redis"],version = "*"}
-celery-pubsub = "*"
 
 [requires]
 python_version = "3.7"
