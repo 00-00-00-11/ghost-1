@@ -6,6 +6,7 @@ load_dotenv()
 
 # Cogs import
 from cogs.ServerInfo import ServerInfo
+from cogs.Random import Random
 from cogs.UserInfo import UserInfo
 from cogs.Testing import Testing
 from cogs.Moderation import Moderation
@@ -21,6 +22,7 @@ client = commands.Bot(command_prefix=PREFIX, help_command=None,
 
 # Add cogs to the client
 client.add_cog(ServerInfo(client))
+client.add_cog(Random(client))
 client.add_cog(UserInfo(client))
 client.add_cog(Testing(client))
 client.add_cog(Moderation(client))

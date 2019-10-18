@@ -101,6 +101,21 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    app.post('/roll', (req, res) => {
+        var roll = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle('Roll')
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setDescription(roll.description);
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js
