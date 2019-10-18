@@ -81,7 +81,5 @@ class ServerInfo(commands.Cog):
             "footer": 'Server ID: {}'.format(server.id)
         }
 
-        try:
-            requests.post('http://localhost:3000/userdump', json=jsonData)
-        except Exception as e:
-            print(e)
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/userdump', json=jsonData)

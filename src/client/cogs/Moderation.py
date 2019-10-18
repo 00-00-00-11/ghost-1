@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 from asyncio import sleep
-import requests
+import asyncio
 
 
 class Moderation(commands.Cog):
@@ -19,10 +19,9 @@ class Moderation(commands.Cog):
             await vc_members[i].edit(voice_channel=toChannel)
             await sleep(0.5)
 
-        try:
-            requests.post('http://localhost:3000/massmove')
-        except Exception as e:
-            print(e)
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/massmove', json=jsonData)
+        
     
     @commands.command()
     async def self_purge(self, ctx, amount: int):

@@ -16,8 +16,6 @@ class Testing(commands.Cog):
             'title': 'Message Relay',
             'message': message
         }
-
-        try:
-            requests.post('http://localhost:3000/message', json=jsonData)
-        except Exception as e:
-            print(e)
+        
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/message', json=jsonData)

@@ -1,8 +1,8 @@
 import discord
 from discord.ext import commands
 from utils.checks import embed_perms
-import requests
 import asyncio
+import aiohttp
 
 class UserInfo(commands.Cog):
     def __init__(self, bot):
@@ -33,8 +33,6 @@ class UserInfo(commands.Cog):
             "is_blocked": is_blocked,
             "created_at": user.created_at.__format__('%A, %B %d %Y @ %H:%M:%S')
         }
-
-        try:
-            requests.post('http://localhost:3000/userinfo', json=jsonData)
-        except Exception as e:
-            print(e)
+        
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/userinfo', json=jsonData)
