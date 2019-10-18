@@ -1,18 +1,19 @@
 const discord = require('discord.js');
 const client = new discord.Client();
-require('dotenv').config()
-require('./server')(client)
+require('dotenv').config();
+require('./server')(client);
 
 // Run when the bot sends a ready event
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}`);
+    // Set status and rich presence of the bot for the fun of it.
     client.user.setStatus('dnd');
     client.user.setPresence({
         game: {
             name: ' your commands :)',
             type: 'LISTENING'
         }
-    })
+    });
 });
 
 // Run when message event is sent by client - could be used for commands but not something we are going to need it for

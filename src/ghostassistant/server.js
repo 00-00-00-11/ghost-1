@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 // For future use of owner ID so don't need to call process.env.OWNER_ID every time. Also needs to be converted to a string
 const ownerId = process.env.OWNER_ID.toString();
 
-// Export the server with client as a parameter
+// Export the server with client as a parameter and setup all the routes - needs a refactor
 module.exports = client => {
     app.post('/message', (req, res) => {
         var msg = req.body;
@@ -23,8 +23,8 @@ module.exports = client => {
 
         client.fetchUser(ownerId).then(user => {
             user.send(embed);
-        })
-    })
+        });
+    });
 
     app.post('/serverinfo', (req, res) => {
         var serverinfo = req.body;
@@ -140,15 +140,15 @@ module.exports = client => {
             .setColor(0xffffff)
             .setFooter('Ghost')
             .setTimestamp()
-            .setDescription(purge.description)
+            .setDescription(purge.description);
 
         client.fetchUser(ownerId).then(user => {
             user.send(embed);
-        })
-    })
-}
+        });
+    });
+};
 
 // Set up listener when module is instantiated in bot.js
 const listener = app.listen(3000, () => {
     console.log('Your app is listening on port ', listener.address().port);
-})
+});

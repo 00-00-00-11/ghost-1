@@ -37,9 +37,5 @@ async def on_ready():
     # await client.change_presence(activity=activity)
 
 
-@client.command()
-async def test(ctx):
-    await ctx.send('hey there!')
-
 # Run selfbot
 client.run(USER_TOKEN, bot=False)

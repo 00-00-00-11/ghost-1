@@ -57,7 +57,7 @@ class ServerInfo(commands.Cog):
         
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/serverinfo', json=jsonData)
-    
+
     @commands.command()
     async def userdump(self, ctx):
         """Get a list of all the users in the current server."""
