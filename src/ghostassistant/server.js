@@ -71,6 +71,20 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    //TODO: Refactor this to just be message based, it does not need its own route its redundant
+    app.post('/massmove', (req, res) => {
+        const embed = new discord.RichEmbed()
+            .setTitle('Mass Move')
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setDescription('Mass move was successful.');
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js
