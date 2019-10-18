@@ -116,6 +116,21 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    app.post('/strawpoll', (req, res) => {
+        var strawpoll = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle(strawpoll.title)
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setDescription(strawpoll.description);
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js

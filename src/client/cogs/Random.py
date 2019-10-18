@@ -27,3 +27,29 @@ class Random(commands.Cog):
             requests.post('http://localhost:3000/roll', json=jsonData)
         except Exception as e:
             print(e)
+    
+    @commands.command()
+    async def strawpoll(self, ctx, title: str, *options: str):
+        await ctx.message.delete()
+
+        data = {'title': title, 'options':  options}
+        link = "https://www.strawpoll.me/api/v2/polls"
+
+        get_poll = requests.post(link, json=data, headers={
+                                 'Content-Type': 'application/json'})
+
+        json = get_poll.json()
+
+        message = 'The link to the strawpoll is https://strawpoll.me/{}'.format(
+            json['id']
+        )
+
+        jsonData = {
+            "title": "Strawpoll - {}".format(title),
+            "description": message
+        }
+
+        try:
+            requests.post('http://localhost:3000/strawpoll', json=jsonData)
+        except Exception as e:
+            print(e)
