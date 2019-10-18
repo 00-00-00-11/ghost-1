@@ -131,6 +131,17 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    app.post('/purge', (req, res) => {
+        var purge = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle('Self Purge')
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setDescription()
+    })
 }
 
 // Set up listener when module is instantiated in bot.js

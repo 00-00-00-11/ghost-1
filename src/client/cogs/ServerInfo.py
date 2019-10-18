@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from utils.pastebin import pastebin
 import requests
+import aiohttp
 
 
 class ServerInfo(commands.Cog):
@@ -54,11 +55,9 @@ class ServerInfo(commands.Cog):
             "created_at": server.created_at.__format__(
                 '%A, %B %d %Y @ %H:%M:%S')
         }
-
-        try:
-            requests.post('http://localhost:3000/serverinfo', json=jsonData)
-        except Exception as e:
-            print(e)
+        
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/serverinfo', json=jsonData)
     
     @commands.command()
     async def userdump(self, ctx):
