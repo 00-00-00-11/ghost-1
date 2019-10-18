@@ -59,3 +59,30 @@ class ServerInfo(commands.Cog):
             requests.post('http://localhost:3000/serverinfo', json=jsonData)
         except Exception as e:
             print(e)
+    
+    @commands.command()
+    async def userdump(self, ctx):
+        """Get a list of all the users in the current server."""
+        await ctx.message.delete()
+
+        server = ctx.message.guild
+
+        all_users = []
+        for user in server.members:
+            all_users.append('{0}#{1} ({2}) {3}'.format(
+                user.name, user.discriminator, user.id, user.created_at.__format__(
+                    '%A, %B %d %Y @ %H:%M:%S')))
+        all_users.sort()
+        users = '\n'.join(all_users)
+        url = await pastebin(str(users))
+
+        jsonData = {
+            "title": 'User List - {} members'.format(server.member_count),
+            "description": url,
+            "footer": 'Server ID: {}'.format(server.id)
+        }
+
+        try:
+            requests.post('http://localhost:3000/userdump', json=jsonData)
+        except Exception as e:
+            print(e)

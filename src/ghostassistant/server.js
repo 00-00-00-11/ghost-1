@@ -85,6 +85,22 @@ module.exports = client => {
             user.send(embed);
         });
     });
+
+    app.post('/userdump', (req, res) => {
+        var userdump = req.body;
+
+        const embed = new discord.RichEmbed()
+            .setTitle(userdump.title)
+            .setColor(0xffffff)
+            .setFooter('Ghost')
+            .setTimestamp()
+            .setDescription(userdump.description)
+            .setFooter(userdump.footer);
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        });
+    });
 }
 
 // Set up listener when module is instantiated in bot.js
