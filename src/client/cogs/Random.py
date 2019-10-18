@@ -2,7 +2,7 @@ from discord.ext import commands
 from utils.checks import embed_perms
 import discord
 import random
-import requests
+import aiohttp
 
 class Random(commands.Cog):
     def __init__(self, bot):
@@ -22,11 +22,9 @@ class Random(commands.Cog):
         jsonData = {
             "description": result
         }
-
-        try:
-            requests.post('http://localhost:3000/roll', json=jsonData)
-        except Exception as e:
-            print(e)
+        
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/roll', json=jsonData)
     
     @commands.command()
     async def strawpoll(self, ctx, title: str, *options: str):
@@ -34,11 +32,11 @@ class Random(commands.Cog):
 
         data = {'title': title, 'options':  options}
         link = "https://www.strawpoll.me/api/v2/polls"
+        json = None
 
-        get_poll = requests.post(link, json=data, headers={
-                                 'Content-Type': 'application/json'})
-
-        json = get_poll.json()
+        async with aiohttp.ClientSession() as session:
+            async with session.post(link, json=data, headers={'Content-Type': 'application/json'}) as resp:
+                json = await resp.json()
 
         message = 'The link to the strawpoll is https://strawpoll.me/{}'.format(
             json['id']
@@ -48,8 +46,6 @@ class Random(commands.Cog):
             "title": "Strawpoll - {}".format(title),
             "description": message
         }
-
-        try:
-            requests.post('http://localhost:3000/strawpoll', json=jsonData)
-        except Exception as e:
-            print(e)
+        
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/strawpoll', json=jsonData)
