@@ -136,11 +136,15 @@ module.exports = client => {
         var purge = req.body;
 
         const embed = new discord.RichEmbed()
-            .setTitle('Self Purge')
+            .setTitle(purge.title)
             .setColor(0xffffff)
             .setFooter('Ghost')
             .setTimestamp()
-            .setDescription()
+            .setDescription(purge.description)
+
+        client.fetchUser(ownerId).then(user => {
+            user.send(embed);
+        })
     })
 }
 

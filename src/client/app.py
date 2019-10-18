@@ -32,6 +32,10 @@ client.add_cog(Moderation(client))
 async def on_ready():
     print(f'Logged in as {client.user}')
 
+    # activity = discord.Activity(
+    #     name="to your commands :)", type=discord.ActivityType.listening)
+    # await client.change_presence(activity=activity)
+
 
 @client.command()
 async def test(ctx):

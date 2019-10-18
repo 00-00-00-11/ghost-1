@@ -7,10 +7,10 @@ verify_ssl = true
 autopep8 = "*"
 
 [packages]
-requests = "*"
-pbwrap = "*"
 python-dotenv = "*"
 discord-py = "*"
+requests = "*"
+pbwrap = "*"
 
 [requires]
 python_version = "3.7"

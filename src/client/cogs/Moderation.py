@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 from asyncio import sleep
+import aiohttp
 import asyncio
 
 
@@ -20,7 +21,7 @@ class Moderation(commands.Cog):
             await sleep(0.5)
 
         async with aiohttp.ClientSession() as session:
-            await session.post('http://localhost:3000/massmove', json=jsonData)
+            await session.post('http://localhost:3000/massmove')
         
     
     @commands.command()
@@ -33,8 +34,15 @@ class Moderation(commands.Cog):
         def is_me(m):
             return m.author == self.bot.user
 
+        # TODO: Refactor to be rate limited
         # This works for now... Want to make it so it doesnt get rate limited / look suspicious...
-        # deleted = await channel.purge(limit=amount, check=is_me)
-        history = await channel.history(limit=amount).flatten()
-        print(history)
-        # await ctx.send('Deleted {} message(s)'.format(len(deleted)))
+        deleted = await channel.purge(limit=amount, check=is_me)
+        # history = await channel.history(limit=None).flatten()
+
+        jsonData = {
+            'title': 'Self Purge',
+            'description': f'Deleted {len(deleted) + 1} messages(s)'
+        }
+
+        async with aiohttp.ClientSession() as session:
+            await session.post('http://localhost:3000/purge', json=jsonData)
