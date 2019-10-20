@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 from utils.pastebin import pastebin
 import aiohttp
+import asyncio
 
 
 class ServerInfo(commands.Cog):
