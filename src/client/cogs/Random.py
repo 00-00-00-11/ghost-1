@@ -1,5 +1,4 @@
 from discord.ext import commands
-from utils.checks import embed_perms
 import discord
 import random
 import aiohttp

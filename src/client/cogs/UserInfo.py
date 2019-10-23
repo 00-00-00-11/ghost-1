@@ -1,6 +1,5 @@
 import discord
 from discord.ext import commands
-from utils.checks import embed_perms
 import asyncio
 import aiohttp
 
