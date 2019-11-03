@@ -3,9 +3,10 @@ import requests
 
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse
 from dotenv import load_dotenv
 load_dotenv()
+
 
 API_ENDPOINT = 'https://discordapp.com/api/v6'
 CLIENT_SECRET = getenv('CLIENT_SECRET', None)
@@ -33,7 +34,7 @@ def callback(request):
     print(user_data)
 
     # TODO: Redirect to dashboard
-    return HttpResponseRedirect('/')
+    return redirect('/')
 
 
 # Helper functions
@@ -51,7 +52,8 @@ def exchange_code(code):
         'Content-Type': 'application/x-www-form-urlencoded'
     }
 
-    r = requests.post(f'{API_ENDPOINT}/oauth2/token', data=data, headers=headers)
+    r = requests.post(f'{API_ENDPOINT}/oauth2/token',
+                      data=data, headers=headers)
     return r.json()
 
 
@@ -67,7 +69,8 @@ def refresh_token(refresh_token):
     headers = {
         'Content-Type': 'application/x-www-form-encoded'
     }
-    r = requests.post(f'{API_ENDPOINT}/oauth2/token', data=data, headers=headers)
+    r = requests.post(f'{API_ENDPOINT}/oauth2/token',
+                      data=data, headers=headers)
     return r.json()
 
 
