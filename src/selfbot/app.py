@@ -32,10 +32,5 @@ client.add_cog(Moderation(client))
 async def on_ready():
     print(f'Logged in as {client.user}')
 
-    # activity = discord.Activity(
-    #     name="to your commands :)", type=discord.ActivityType.listening)
-    # await client.change_presence(activity=activity)
 
-
-# Run selfbot
 client.run(USER_TOKEN, bot=False)
