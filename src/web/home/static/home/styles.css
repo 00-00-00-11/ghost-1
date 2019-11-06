@@ -1,0 +1,12 @@
+body {
+    background-color: #202225;
+    color: white;
+}
+
+.navbar-inner {
+    background: transparent;
+}
+
+.jumbotron {
+    background-color: #202225;
+}

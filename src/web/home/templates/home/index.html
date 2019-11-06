@@ -1,1 +1,66 @@
-<a href="{% url 'home:discord' %}">Login with Discord</a>
+{% extends 'home/base.html' %}
+<!-- Title -->
+{% block title %}Ghost{% endblock title %}
+<!-- Content -->
+{% block content %}
+<div class="text-center pt-5">
+    <div class="jumbotron">
+        <h1 class="display-4">Ghost</h1>
+        <p class="lead">
+            Advanced Discord self-bot that allows you to reach maximum meme
+            potential!
+        </p>
+        <a
+            class="btn btn-primary btn-lg mr-5 pr-4 pl-4"
+            href="{% url 'home:discord' %}"
+            role="button"
+            >Login</a
+        >
+        <a class="btn btn-light btn-lg pr-4 pl-4" href="#" role="button"
+            >Features</a
+        >
+    </div>
+    <div class="row pb-5 pt-5">
+        <div class="col my-auto">
+            <h4>Title 1 Title 2</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in
+            aliquet quam, non vestibulum felis. Cras eu pharetra lacus.
+            Curabitur porttitor nunc id nulla blandit fermentum.
+        </div>
+        <div class="col my-auto">
+            <img src="http://via.placeholder.com/300" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col my-auto">
+            <img src="http://via.placeholder.com/300" class="img-fluid" />
+        </div>
+        <div class="col my-auto">
+            <h4>This is a cool feature title</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in
+            aliquet quam, no
+        </div>
+    </div>
+    <div class="row pb-5 pt-5">
+        <div class="col my-auto">
+            <h4>Title 1 Title 2</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in
+            aliquet quam, non vestibulum felis. Cras eu pharetra lacus.
+            Curabitur porttitor nunc id nulla blandit fermentum.
+        </div>
+        <div class="col my-auto">
+            <img src="http://via.placeholder.com/300" class="img-fluid" />
+        </div>
+    </div>
+    <div class="row pt-5">
+        <div class="col my-auto">
+            <img src="http://via.placeholder.com/300" class="img-fluid" />
+        </div>
+        <div class="col my-auto">
+            <h4>This is a cool feature title</h4>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean in
+            aliquet quam, no
+        </div>
+    </div>
+</div>
+{% endblock content %}

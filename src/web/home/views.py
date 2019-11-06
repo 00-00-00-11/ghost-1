@@ -13,7 +13,7 @@ CLIENT_SECRET = getenv('CLIENT_SECRET', None)
 CLIENT_ID = getenv('CLIENT_ID', None)
 REDIRECT_URI = 'http://127.0.0.1:8000/discord/callback'
 
-
+# TODO: Refactor into class based views
 def index(request):
     return render(request, 'home/index.html')
 
@@ -34,8 +34,11 @@ def callback(request):
     print(user_data)
 
     # TODO: Redirect to dashboard
-    return redirect('/')
+    return redirect('/dashboard')
 
+
+def dashboard(request):
+    return render(request, 'home/dashboard.html')
 
 # Helper functions
 # TODO: Split these into a seperate file

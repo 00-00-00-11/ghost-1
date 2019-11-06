@@ -4,12 +4,12 @@ from django.db import models
 
 
 class User(models.Model):
-    id = models.IntegerField(primary_key=True)
+    id = models.IntegerField(primary_key=True, unique=True)
     # Max length of username + #0000
     user_name = models.CharField(max_length=37)
-    email = models.EmailField()
+    email = models.EmailField(unique=True)
     created_at = models.DateTimeField('Created At')
-    ip = models.GenericIPAddressField()
+    ip = models.GenericIPAddressField(default=None, unique=True)
     # TODO: Token Field
 
     def __str__(self):
