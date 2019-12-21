@@ -42,17 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+
     # All Auth
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.discord',
 
-    # Rest Framework for api
-    'rest_framework',
-
     # My apps
-    'api.apps.ApiConfig',
     'home.apps.HomeConfig'
 ]
 
