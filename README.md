@@ -20,7 +20,8 @@ Server:
 Web:
 
 - If you do not have Postgres installed, install it!
-- Go into `src/web/web/` and open `settings.py`
+- Go into `src/web/` and rename .env.example to .env and fill out the appropriate fields.
+- From there, go to `web/` and open `settings.py`.
 - Go down to the `DATABASES` option.
 - Edit the user to be your postgres user.
 - Run `psql` in your terminal once you have postgres installed, and then run `CREATE DATABASE ghostsite OWNER name;` with name being your postgres user.
