@@ -34,3 +34,13 @@ Congrats! You now have a self hosted version of Ghost and Ghost Assistant!
 
 - Discord redirect URL to real url
 - Change URL in django all-auth social application
+
+## Stuff to Do
+
+- [ ] Refactor all .env files into one .env file for easier management.
+- [ ] Improve this README with better documentation that will make for an easier deploy down the line.
+- [ ] Allow a user to spin up a new self bot under their user account from the website that allows them to manage it.
+- [ ] Implement self-moderation / aditional commands
+- [ ] Rate-limit the purge command as to not be detected.
+- [ ] Refactor how I do sessions when posting data to the webserver to make everything run faster.
+- [ ] Create user dashboard where users can manage their account.
