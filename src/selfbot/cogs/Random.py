@@ -3,6 +3,7 @@ import discord
 import random
 import aiohttp
 
+
 class Random(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -21,10 +22,10 @@ class Random(commands.Cog):
         jsonData = {
             "description": result
         }
-        
+
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/roll', json=jsonData)
-    
+
     @commands.command()
     async def strawpoll(self, ctx, title: str, *options: str):
         await ctx.message.delete()
@@ -45,6 +46,6 @@ class Random(commands.Cog):
             "title": "Strawpoll - {}".format(title),
             "description": message
         }
-        
+
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/strawpoll', json=jsonData)

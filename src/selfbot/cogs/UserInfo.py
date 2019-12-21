@@ -3,6 +3,7 @@ from discord.ext import commands
 import asyncio
 import aiohttp
 
+
 class UserInfo(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -32,6 +33,6 @@ class UserInfo(commands.Cog):
             "is_blocked": is_blocked,
             "created_at": user.created_at.__format__('%A, %B %d %Y @ %H:%M:%S')
         }
-        
+
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/userinfo', json=jsonData)

@@ -16,6 +16,7 @@ djangorestframework = "*"
 psycopg2 = "<2.8"
 psycopg2-binary = "*"
 oauthlib = "*"
+django-allauth = "*"
 
 [requires]
 python_version = "3.7"

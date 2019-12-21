@@ -55,7 +55,7 @@ class ServerInfo(commands.Cog):
             "created_at": server.created_at.__format__(
                 '%A, %B %d %Y @ %H:%M:%S')
         }
-        
+
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/serverinfo', json=jsonData)
 
