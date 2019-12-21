@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('home.urls')), # Home route
     path('api/', include('api.urls')), # Api Route
-    path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')), # Discord routes
+    path('admin/', admin.site.urls)
 ]

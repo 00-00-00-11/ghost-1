@@ -3,6 +3,10 @@ body {
     color: white;
 }
 
+.panel-body {
+    background-color: #202225;
+}
+
 .navbar-inner {
     background: transparent;
 }

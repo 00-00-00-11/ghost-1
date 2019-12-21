@@ -4,8 +4,7 @@ from . import views
 
 app_name = 'home'
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('discord', views.discord, name='discord'),
-    path('discord/callback', views.callback, name='callback'),
-    path('dashboard', views.dashboard, name='dashboard')
+    path('', views.Home.as_view(), name='home'),
+    path('dashboard', views.Dashboard.as_view(), name='dashboard'),
+    path('faq', views.Faq.as_view(), name='faq')
 ]

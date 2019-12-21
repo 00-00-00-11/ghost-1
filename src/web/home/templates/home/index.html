@@ -1,4 +1,6 @@
 {% extends 'home/base.html' %}
+{% load socialaccount %}
+
 <!-- Title -->
 {% block title %}Ghost{% endblock title %}
 <!-- Content -->
@@ -12,7 +14,7 @@
         </p>
         <a
             class="btn btn-primary btn-lg mr-5 pr-4 pl-4"
-            href="{% url 'home:discord' %}"
+            href="{% provider_login_url 'discord' %}"
             role="button"
             >Login</a
         >
