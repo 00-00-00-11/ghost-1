@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import requests
+import aiohttp
 
 
 class Testing(commands.Cog):
@@ -16,6 +16,6 @@ class Testing(commands.Cog):
             'title': 'Message Relay',
             'message': message
         }
-        
+
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/message', json=jsonData)

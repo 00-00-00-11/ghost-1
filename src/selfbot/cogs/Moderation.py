@@ -22,8 +22,7 @@ class Moderation(commands.Cog):
 
         async with aiohttp.ClientSession() as session:
             await session.post('http://localhost:3000/massmove')
-        
-    
+
     @commands.command()
     async def self_purge(self, ctx, amount: int):
         # The channel to be purged and the the selfbot user.
@@ -37,7 +36,6 @@ class Moderation(commands.Cog):
         # TODO: Refactor to be rate limited
         # This works for now... Want to make it so it doesnt get rate limited / look suspicious...
         deleted = await channel.purge(limit=amount, check=is_me)
-        # history = await channel.history(limit=None).flatten()
 
         jsonData = {
             'title': 'Self Purge',
