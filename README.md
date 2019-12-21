@@ -44,3 +44,6 @@ Congrats! You now have a self hosted version of Ghost and Ghost Assistant!
 - [ ] Rate-limit the purge command as to not be detected.
 - [ ] Refactor how I do sessions when posting data to the webserver to make everything run faster.
 - [ ] Create user dashboard where users can manage their account.
+- [ ] Figure out how the fuck I am going to deploy all 3 applications at the same time easily. Docker? Kuberneties? Microservices? Idk will figure it out when the time comes lmao.
+- [ ] Create a flag to run everything in 'development' rather than production mode so that I do not have to manually change all settings from production to development.
+- [ ] Create a way to spin everything up locally with 1 command, probably going to use docker for this.
