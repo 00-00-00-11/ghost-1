@@ -24,9 +24,9 @@ Web:
 - From there, go to `web/` and open `settings.py`.
 - Go down to the `DATABASES` option.
 - Edit the user to be your postgres user.
-- Run `psql` in your terminal once you have postgres installed, and then run `CREATE DATABASE ghostsite OWNER name;` with name being your postgres user.
+- Run `psql` in your terminal once you have postgres installed, and then run `CREATE DATABASE ghostsite OWNER name;` with name being your postgres user. This will create the database that the website will use.
 - Run `python3 manage.py migrate` and then run `python3 manage.py runserver` and the webserver should be up and running.
-- For more information on how to get the postgres database setup, refer to [this](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/) website tutorial.
+- For more information on how to get the postgres database setup, refer to [this](https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/) tutorial. Reach out to me if you have any other problems and I will do my best to troubleshoot them.
 
 Congrats! You now have a self hosted version of Ghost and Ghost Assistant!
 
@@ -46,4 +46,7 @@ Congrats! You now have a self hosted version of Ghost and Ghost Assistant!
 - [ ] Create user dashboard where users can manage their account.
 - [ ] Figure out how the fuck I am going to deploy all 3 applications at the same time easily. Docker? Kuberneties? Microservices? Idk will figure it out when the time comes lmao.
 - [ ] Create a flag to run everything in 'development' rather than production mode so that I do not have to manually change all settings from production to development.
+- [ ] Maybe split requirements for each app up? This would be done when I dockerize the applciation. Would be nice for it to be modular.
 - [ ] Create a way to spin everything up locally with 1 command, probably going to use docker for this.
+- [ ] Create template overrides for default templates that are used by django-allauth package.
+- [ ] Figure out a better way to use postgres than psycopg2 because I know it is going to be a bitch and a half to deploy.
